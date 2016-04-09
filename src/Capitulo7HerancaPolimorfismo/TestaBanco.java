@@ -18,11 +18,11 @@ public class TestaBanco {
 		AtualizadorDeContas adc = new AtualizadorDeContas(0.01);
 
 		// testando algumas coisas
-		for(int i = 0; i <= banrisul.pegaTotalDeContas(); i++){
+		for(int i = 0; i < banrisul.pegaTotalDeContas(); i++){
 			Conta aux = new Conta();
 			aux = banrisul.pegaConta(i);
 			adc.roda(aux);
-			System.out.println("Saldo da conta é :" + aux.getSaldo()); //aqui atualiza
+			System.out.println("Saldo da conta Ã© :" + aux.getSaldo()); //aqui atualiza
 		}
 	}
 	
