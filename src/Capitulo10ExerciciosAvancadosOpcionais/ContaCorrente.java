@@ -16,7 +16,11 @@ public class ContaCorrente implements ContaTributavel {
 	}
 
 	public void saca(double valor) {
-		this.saldo -= valor;
+		if (valor <= this.saldo) {
+			this.saldo -= valor;
+		} else {
+			System.out.println("Saldo insuficiente.");
+		}
 	}
 
 	public double calculaTributos() {
