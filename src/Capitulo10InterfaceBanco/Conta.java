@@ -8,8 +8,13 @@ public abstract class Conta {
 	}
 
 	public void saca(double valor) {
-		this.saldo -= valor;
+		if (valor <= this.saldo) {
+			this.saldo -= valor;
+		} else {
+			System.out.println("Saldo insuficiente.");
+		}
 	}
+
 
 	public double getSaldo() {
 		return this.saldo;
