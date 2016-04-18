@@ -21,7 +21,9 @@ public class MetodosParaString {
 	}
 	
 	// escrevendo as palavras na ORDEM inversa
-	public void ImprimeStringOrdemInversa(String str) {
-	 
+	public void ImprimeStringOrdemInversa(String frase) {
+		List<String> lista = Arrays.asList(frase.split(" "));
+		Collections.reverse(lista);
+		lista.forEach(palavra -> System.out.println(palavra));
 	}
 }
