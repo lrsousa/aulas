@@ -28,4 +28,17 @@ class MetodosParaString {
 		Collections.reverse(lista);
 		lista.forEach(palavra -> System.out.print(palavra + " "));
 	}
+
+	// converter String em inteiro
+	public void TransformaStringEmInt(String str) {
+		int numero = 0;
+		int valordaposicao;
+		char aux;
+		for (int i = 0; i < str.length(); i++) {
+			aux = (char) str.charAt(i);
+			valordaposicao = Character.getNumericValue(aux);
+			numero = numero * 10 + valordaposicao;
+		}
+		System.out.println("\n" + numero);
+	}
 }
