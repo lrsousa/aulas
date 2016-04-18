@@ -1,8 +1,10 @@
 package Capitulo14JavaLang;
 
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
-public class MetodosParaString {
+class MetodosParaString {
 
 	// imprime caracter por caracter
 	public void ImprimeStringChar(String str) {
@@ -19,11 +21,11 @@ public class MetodosParaString {
 		}
 		System.out.println(aux);
 	}
-	
+
 	// escrevendo as palavras na ORDEM inversa
-	public void ImprimeStringOrdemInversa(String frase) {
-		List<String> lista = Arrays.asList(frase.split(" "));
+	public void ImprimeStringOrdemInversa(String str) {
+		List<String> lista = Arrays.asList(str.split(" "));
 		Collections.reverse(lista);
-		lista.forEach(palavra -> System.out.println(palavra));
+		lista.forEach(palavra -> System.out.print(palavra + " "));
 	}
 }
