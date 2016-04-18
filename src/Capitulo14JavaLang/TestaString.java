@@ -7,19 +7,19 @@ public class TestaString {
 		s.replace(0, 4, "fj22");
 		System.out.println(s);
 
-		// saber se String est· dentro da outra
+		// saber se String est√° dentro da outra
 		String str1 = "casa";
 		String str2 = "asa";
 		if (str1.contains(str2)) {
-			System.out.println(str1 + " contÈm a palavra " + str2);
+			System.out.println(str1 + " cont√©m a palavra " + str2);
 		}
 
-		// tirar os epaÁos da ponta de ma String
+		// tirar os epa√ßos da ponta de ma String
 		String str3 = " casa ";
 		str3 = str3.replaceAll(" ", "");
 		System.out.println(str3);
 
-		// saber se a String est· vazia
+		// saber se a String est√° vazia
 		String str4 = "casa";
 		System.out.println(str4.isEmpty());
 
@@ -35,5 +35,8 @@ public class TestaString {
 		teste.ImprimeStringInversa(nova);
 		//reescrevendo na ordem invertida
 		teste.ImprimeStringOrdemInversa(nova);
+		
+		String numero = "3132324";
+		teste.TransformaStringEmInt(numero);
 	}
 }
