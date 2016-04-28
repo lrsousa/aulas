@@ -1,6 +1,8 @@
 package Capitulo19Sockets;
 
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintStream;
 import java.net.Socket;
 import java.util.Scanner;
@@ -9,17 +11,18 @@ import org.omg.CORBA.portable.UnknownException;
 
 public class ClienteTXT {
 	public static void main(String[] args) throws UnknownException, IOException {
-		Socket cliente = new Socket("127.0.0.1", 12345);
+		Socket cliente = new Socket("127.0.0.1", 12346);
 		System.out.println("O cliente se conectou ao servidor!");
 
-		Scanner teclado = new Scanner(System.in);
+		InputStream is = new FileInputStream("arquivo.txt");
+		Scanner entrada = new Scanner(is);
 		PrintStream saida = new PrintStream(cliente.getOutputStream());
 
-		while (teclado.hasNextLine()) {
-			saida.println(teclado.nextLine());
+		while (entrada.hasNextLine()) {
+			saida.println(entrada.nextLine());
 		}
 
 		saida.close();
-		teclado.close();
+		entrada.close();
 	}
 }
