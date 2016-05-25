@@ -1,40 +1,25 @@
 package Capitulo19Sockets;
 
-import java.nio.file.*;
-import java.io.BufferedWriter;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Scanner;
 
 public class Servidor {
+	@SuppressWarnings("resource")
 	public static void main(String[] args) throws IOException {
-		BufferedWriter writer =  null;
 		ServerSocket servidor = new ServerSocket(4444);
 		System.out.println("Porta 4444 aberta!");
 
 		Socket cliente = servidor.accept();
 		System.out.println("Nova conexão com o cliente " + cliente.getInetAddress().getHostAddress());
-
-		Scanner entrada = new Scanner(cliente.getInputStream());
-		String linha = "";
-
-		try { 
-			writer = Files.newBufferedWriter(Paths.get("saida.txt"));
-		} catch (IOException e) {
-			entrada.close();
-			servidor.close();
-			throw new RuntimeException(e);
-		}
 		
-	while (entrada.hasNextLine()) {
-			linha = entrada.nextLine();
-			writer.append(linha + "\n");
-	}		
-		
-		entrada.close();
-		servidor.close();
+		InputStream ip = cliente.getInputStream();
+		BufferedReader buffer = new BufferedReader(new InputStreamReader(ip));
+		Files.write(Paths.get("saida.txt"), (Iterable<String>)buffer.lines()::iterator);
 	}
 }

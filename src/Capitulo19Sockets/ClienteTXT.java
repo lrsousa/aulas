@@ -10,6 +10,7 @@ import java.util.Scanner;
 import org.omg.CORBA.portable.UnknownException;
 
 public class ClienteTXT {
+	@SuppressWarnings("resource")
 	public static void main(String[] args) throws UnknownException, IOException {
 		Socket cliente = new Socket("127.0.0.1", 4444);
 		System.out.println("O cliente se conectou ao servidor!");
