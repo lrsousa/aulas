@@ -18,11 +18,10 @@ public class ClienteTXT {
 		InputStream is = new FileInputStream("arquivo.txt");
 		Scanner entrada = new Scanner(is);
 		PrintStream saida = new PrintStream(cliente.getOutputStream());
-
+		
 		while (entrada.hasNextLine()) {
 			saida.println(entrada.nextLine());
 		}
-
 		saida.close();
 		entrada.close();
 	}
